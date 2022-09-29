@@ -12,8 +12,6 @@ public class Jukebox {
         }
     }
 
-
-
     public static void main(String[] args) {
         Jukebox uselessJuke = new Jukebox();
         uselessJuke.music(1);
