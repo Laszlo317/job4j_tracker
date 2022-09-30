@@ -59,10 +59,14 @@ public class Tracker {
     }
 
     public void replace(int id, Item item) {
-        items[indexOf(id)].setName(item.getName());
+        if (indexOf(id) != -1) {
+            items[indexOf(id)].setName(item.getName());
+        }
     }
 
     public boolean delete(int id) {
+        if (id <= 0)
+            return false;
         int index = indexOf(id);
         items[index] = null;
         int length = items.length -  index - 1;
