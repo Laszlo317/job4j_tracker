@@ -2,27 +2,22 @@ package ru.job4j.pojo;
 
 public class Library {
     public static void main(String[] args) {
-        Book cleanCode = new Book();
-        Book tij4 = new Book();
-        Book tij5 = new Book();
-        Book tij3 = new Book();
         Book[] books = new Book[4];
-        books[0] = cleanCode;
-        books[1] = tij3;
-        books[2] = tij4;
-        books[3] = tij5;
+        books[0] = new Book("Clean Code", 1000);
+        books[1] = new Book("TIJ3", 1000);
+        books[2] = new Book("TIJ4", 1000);
+        books[3] = new Book("TIJ5", 1000);
         for (Book book : books) {
             System.out.println(book.getName() + " contains " + book.getPages());
         }
-        Book temp = new Book();
-        temp = books[0];
+        Book temp = books[0];
         books[0] = books[3];
         books[3] = temp;
         for (Book book : books) {
             System.out.println(book.getName() + " contains " + book.getPages());
         }
         for (Book book : books) {
-            if (book.equals(cleanCode)) {
+            if ("Clean code".equals(book.getName())) {
                 System.out.println(book.getName() + " contains " + book.getPages());
             }
         }
