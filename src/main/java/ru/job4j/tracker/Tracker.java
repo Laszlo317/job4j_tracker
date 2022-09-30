@@ -65,8 +65,9 @@ public class Tracker {
     }
 
     public boolean delete(int id) {
-        if (id <= 0)
+        if (id <= 0) {
             return false;
+        }
         int index = indexOf(id);
         items[index] = null;
         int length = items.length -  index - 1;
