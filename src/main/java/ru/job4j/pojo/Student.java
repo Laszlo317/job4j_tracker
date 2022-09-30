@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 public class Student {
     private String name;
     private String group;
+    private LocalDateTime date;
 
     public String getName() {
         return name;
@@ -29,7 +30,5 @@ public class Student {
     public void setDate(LocalDateTime date) {
         this.date = date;
     }
-
-    private LocalDateTime date;
 
 }
