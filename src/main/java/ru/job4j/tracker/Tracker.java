@@ -56,8 +56,6 @@ public class Tracker {
         return rsl;
     }
 
-    public void replace(int id, Item item) {
-        items[indexOf(id)].setName(item.getName());
-    }
+
 
 }
