@@ -15,7 +15,7 @@ public class Error {
 
     public void getStatus() {
         String ln = System.lineSeparator();
-        System.out.println("active: " + active + ln + "status: " + status + ln +"message: "
+        System.out.println("active: " + active + ln + "status: " + status + ln + "message: "
                 + message);
     }
 
