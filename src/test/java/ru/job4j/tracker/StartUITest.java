@@ -20,9 +20,9 @@ public class StartUITest {
         };
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString()).isEqualTo(
-                "Menu." + System.lineSeparator()
+                "Menu:" + System.lineSeparator()
                         + "0. Exit" + System.lineSeparator()
-        );
+                + "Exiting..." + System.lineSeparator());
     }
 
     @Test
@@ -130,6 +130,28 @@ public class StartUITest {
                         + "Menu:" + ln
                         + "0. Find by name" + ln
                         + "1. Exit" + ln
+                        + "Exiting..." + ln
+        );
+    }
+
+    @Test
+    public void whenInvalidExit() {
+        Output out = new StubOutput();
+        Input in = new StubInput(
+                new String[] {"5", "0"}
+        );
+        Tracker tracker = new Tracker();
+        UserAction[] actions = new UserAction[]{
+                new ExitAction(out)
+        };
+        new StartUI(out).init(in, tracker, actions);
+        String ln = System.lineSeparator();
+        assertThat(out.toString()).isEqualTo(
+                "Menu:" + ln
+                        + "0. Exit" + ln
+                        + "Wrong input, you can select: 0 .. 0" + ln
+                        + "Menu:" + ln
+                        + "0. Exit" + ln
                         + "Exiting..." + ln
         );
     }
