@@ -1,7 +1,5 @@
 package ru.job4j.tracker;
 
-import java.time.format.DateTimeFormatter;
-
 public class StartUI {
 
     public void init(Input input, Tracker tracker, UserAction[] actions) {
@@ -26,9 +24,9 @@ public class StartUI {
         Tracker tracker = new Tracker();
         UserAction[] actions = {
                 new CreateAction(),
-                new EditAction(),
+                new ReplaceAction(),
                 new DeleteAction(),
-                new ExitAction()
+                new Exit()
         };
         new StartUI().init(consoleInput, tracker, actions);
     }
