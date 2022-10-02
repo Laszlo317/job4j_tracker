@@ -8,14 +8,14 @@ public class UserStore {
                return user;
            }
         }
-        throw new UserNotFoundException("UserNotFoundException");
+        throw new UserNotFoundException("User is not found");
     }
 
     public static boolean validate(User user) throws UserInvalidException {
-        if (user.isValid() || user.getUsername().length() < 3) {
+        if (user.isValid() && user.getUsername().length() >= 3) {
             return true;
         }
-        throw new UserInvalidException("InvalidUserException");
+        throw new UserInvalidException("User doesn't have an access");
     }
 
     public static void main(String[] args) {
