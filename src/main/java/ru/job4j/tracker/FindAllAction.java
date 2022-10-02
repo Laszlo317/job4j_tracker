@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class FindAllAction implements UserAction {
 
-    Output out;
+    private Output out;
 
     public FindAllAction(Output out) {
         this.out = out;

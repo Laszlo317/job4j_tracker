@@ -9,6 +9,21 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class StartUITest {
 
     @Test
+    public void whenCreateItem() {
+        Input in = new StubInput(
+                new String[] {"0", "Item name", "1"}
+        );
+        Output out = new StubOutput();
+        Tracker tracker = new Tracker();
+        UserAction[] actions = {
+                new CreateAction(out),
+                new ExitAction(out)
+        };
+        new StartUI(out).init(in, tracker, actions);
+        assertThat(tracker.findAll()[0].getName()).isEqualTo("Item name");
+    }
+
+    @Test
     public void whenDeleteItem() {
         Tracker tracker = new Tracker();
         Item item = new Item("item name");
@@ -18,7 +33,7 @@ public class StartUITest {
         );
         Output out = new StubOutput();
         UserAction[] actions = {
-                new DeleteAction(),
+                new DeleteAction(out),
                 new ExitAction(out)
         };
         new StartUI(out).init(in, tracker, actions);

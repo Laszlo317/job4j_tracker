@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class FindByNameAction implements UserAction {
 
-    Output out;
+    private Output out;
 
     public FindByNameAction(Output out) {
         this.out = out;
