@@ -4,8 +4,8 @@ import ru.job4j.ex.NegativeNumberException;
 
 public class ValidateInput implements Input {
 
-    Input input;
-    Output output;
+    private Input input;
+    private Output output;
 
     public ValidateInput(Input input, Output output) {
         this.input = input;
