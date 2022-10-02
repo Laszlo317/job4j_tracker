@@ -1,5 +1,7 @@
 package ru.job4j.tracker;
 
+import ru.job4j.ex.NegativeNumberException;
+
 public class ValidateInput implements Input {
 
     Input input;
@@ -23,6 +25,8 @@ public class ValidateInput implements Input {
             try {
                 value = input.askInt(question);
                 invalid = false;
+            } catch (NegativeNumberException nne) {
+                output.println("Please enter a positive number");
             } catch (NumberFormatException nfe) {
                 output.println("Please enter validate data again.");
             }
