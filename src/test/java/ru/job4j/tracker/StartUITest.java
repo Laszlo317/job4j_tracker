@@ -9,6 +9,40 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class StartUITest {
 
     @Test
+    public void whenDeleteItem() {
+        Tracker tracker = new Tracker();
+        Item item = new Item("item name");
+        tracker.add(item);
+        Input in = new StubInput(
+                new String[] {"0", String.valueOf(item.getId()), "1"}
+        );
+        Output out = new StubOutput();
+        UserAction[] actions = {
+                new DeleteAction(),
+                new ExitAction(out)
+        };
+        new StartUI(out).init(in, tracker, actions);
+        assertThat(tracker.findAll()).isEmpty();
+    }
+
+    @Test
+    public void whenReplaceItem() {
+        Tracker tracker = new Tracker();
+        Item item = new Item("Replaced Item");
+        tracker.add(item);
+        Input in = new StubInput(
+                new String[] {"0", String.valueOf(item.getId()), "Sanctuary", "1"}
+        );
+        Output out = new StubOutput();
+        UserAction[] actions = {
+                new ReplaceAction(out),
+                new ExitAction(out)
+        };
+        new StartUI(out).init(in, tracker, actions);
+        assertThat(tracker.findAll()[0].getName()).isEqualTo("Sanctuary");
+    }
+
+    @Test
     public void whenExit() {
         Output out = new StubOutput();
         Input in = new StubInput(
