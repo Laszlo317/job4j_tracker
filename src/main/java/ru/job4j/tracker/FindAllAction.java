@@ -19,7 +19,11 @@ public class FindAllAction implements UserAction {
     public boolean execute(Input input, Tracker tracker) {
         out.println("=== Find all ===");
         Item[] item = tracker.findAll();
-        out.println(Arrays.toString(item));
+        if (item.length != 0) {
+            out.println(Arrays.toString(item));
+        } else {
+            out.println("В списке пока нет заявок.");
+        }
         return true;
     }
 }
