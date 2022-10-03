@@ -20,7 +20,7 @@ public class StartUITest {
                 new ExitAction(out)
         };
         new StartUI(out).init(in, tracker, actions);
-        assertThat(tracker.findAll()[0].getName()).isEqualTo("Item name");
+        assertThat(tracker.findAll().get(0).getName()).isEqualTo("Item name");
     }
 
     @Test
@@ -54,7 +54,7 @@ public class StartUITest {
                 new ExitAction(out)
         };
         new StartUI(out).init(in, tracker, actions);
-        assertThat(tracker.findAll()[0].getName()).isEqualTo("Sanctuary");
+        assertThat(tracker.findAll().get(0).getName()).isEqualTo("Sanctuary");
     }
 
     @Test
@@ -148,7 +148,7 @@ public class StartUITest {
                         + "0. Find all" + ln
                         + "1. Exit" + ln
                         + "=== Find all ===" + ln
-                        + Arrays.toString(tracker.findAll()) + ln
+                        + tracker.findAll().toString() + ln
                         + "Menu:" + ln
                         + "0. Find all" + ln
                         + "1. Exit" + ln
@@ -175,7 +175,7 @@ public class StartUITest {
                         + "0. Find by name" + ln
                         + "1. Exit" + ln
                         + "=== Find by name ===" + ln
-                        + Arrays.toString(tracker.findAll()) + ln
+                        + tracker.findAll().toString() + ln
                         + "Menu:" + ln
                         + "0. Find by name" + ln
                         + "1. Exit" + ln

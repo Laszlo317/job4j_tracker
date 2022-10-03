@@ -1,6 +1,7 @@
 package ru.job4j.tracker;
 
 import java.util.Arrays;
+import java.util.List;
 
 public class FindAllAction implements UserAction {
 
@@ -18,9 +19,9 @@ public class FindAllAction implements UserAction {
     @Override
     public boolean execute(Input input, Tracker tracker) {
         out.println("=== Find all ===");
-        Item[] item = tracker.findAll();
-        if (item.length != 0) {
-            out.println(Arrays.toString(item));
+        List<Item> item = tracker.findAll();
+        if (!item.isEmpty()) {
+            out.println(item.toString());
         } else {
             out.println("В списке пока нет заявок.");
         }
