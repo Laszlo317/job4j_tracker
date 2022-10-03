@@ -9,7 +9,7 @@ public class PasswordValidator {
         char[] pass = password.toCharArray();
 
         if (password.length() < 8 || password.length() > 32) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Password must be no less than 8 symbols and no longer than 32!");
         }
 
         caseValidate(pass);
@@ -26,7 +26,7 @@ public class PasswordValidator {
                 return true;
             }
         }
-        throw new IllegalArgumentException();
+        throw new IllegalArgumentException("Password must contain both lower and upper case symbols");
     }
 
     private static boolean digitCheck(char[] pass) {
@@ -35,7 +35,7 @@ public class PasswordValidator {
                 return true;
             }
         }
-        throw new IllegalArgumentException();
+        throw new IllegalArgumentException("Password must contain at least one digit!");
     }
 
     private static boolean symbolCheck(char[] pass) {
@@ -44,18 +44,16 @@ public class PasswordValidator {
                 return true;
             }
         }
-        throw new IllegalArgumentException();
+        throw new IllegalArgumentException("Password must contain at least one special symbol");
     }
 
     private static void combinationCheck(String pass) {
-        String[] combs = {"qwerty", "12345", "admin", "user"};
+        String[] combs = {"qwerty", "12345", "password", "admin", "user"};
+        String comparisonPass = pass.toUpperCase();
         for (String comb : combs) {
-            for (int j = 0; j < pass.length() - comb.length() + 1; j++) {
-                String compareStr = pass.substring(j, j + comb.length());
-                if (compareStr.equalsIgnoreCase(comb)) {
-                    throw new IllegalArgumentException();
+                if (comparisonPass.contains(comb.toUpperCase())) {
+                    throw new IllegalArgumentException("Password includes " + comb + " sequence");
                 }
-            }
         }
     }
 

@@ -16,7 +16,6 @@ public class PasswordValidatorTest {
                 () -> {
                     pv.validate("nico nico douga");
                 });
-
     }
 
     @Test
@@ -26,7 +25,6 @@ public class PasswordValidatorTest {
                 () -> {
                     pv.validate("HUMBL3D!");
                 });
-
     }
 
     @Test
@@ -36,7 +34,6 @@ public class PasswordValidatorTest {
                 () -> {
                     pv.validate("By the task");
                 });
-
     }
 
     @Test
@@ -46,7 +43,6 @@ public class PasswordValidatorTest {
                 () -> {
                     pv.validate("Bythetask5");
                 });
-
     }
 
     @Test
@@ -55,7 +51,6 @@ public class PasswordValidatorTest {
         String input = "Be4oreUs!";
         String result = pv.validate(input);
         assertThat(result).isEqualTo(input);
-
     }
 
     @Test
@@ -66,6 +61,5 @@ public class PasswordValidatorTest {
                 () -> {
                     pv.validate(input);
                 });
-
     }
 }
