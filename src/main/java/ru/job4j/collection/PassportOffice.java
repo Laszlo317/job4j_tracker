@@ -15,6 +15,7 @@ public class PassportOffice {
         return false;
     }
 
+
     public Citizen get(String passport) {
         if (!citizens.containsKey(passport)) {
             throw new IllegalArgumentException();
