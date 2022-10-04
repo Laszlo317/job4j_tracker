@@ -37,10 +37,10 @@ public class ValidateInputTest {
                 selectSeq
         );
         ValidateInput input = new ValidateInput(in, out);
-        for (String s : selectSeq) {
             int selected = input.askInt("Enter menu:");
-            assertThat(selected).isEqualTo(parseInt(s));
-        }
+            assertThat(selected).isEqualTo(1);
+            selected = input.askInt("Enter menu:");
+            assertThat(selected).isEqualTo(2);
     }
 
     @Test
