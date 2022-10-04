@@ -51,18 +51,17 @@ public class PasswordValidator {
         String[] combs = {"qwerty", "12345", "password", "admin", "user"};
         String comparisonPass = pass.toUpperCase();
         for (String comb : combs) {
-                if (comparisonPass.contains(comb.toUpperCase())) {
-                    throw new IllegalArgumentException("Password includes " + comb + " sequence");
-                }
+            if (comparisonPass.contains(comb.toUpperCase())) {
+                throw new IllegalArgumentException("Password includes " + comb + " sequence");
+            }
         }
     }
 
     private static boolean isOppositeOfFirst(char chFirst, char charToCheck) {
-        if (Character.isLowerCase(chFirst) && Character.isUpperCase(charToCheck)) {
+        if ((Character.isLowerCase(chFirst) && Character.isUpperCase(charToCheck))
+                || (Character.isUpperCase(chFirst) && Character.isLowerCase(charToCheck))) {
             return true;
-        } else {
-            return Character.isUpperCase(chFirst) && Character.isLowerCase(charToCheck);
         }
+        return false;
     }
-
 }
