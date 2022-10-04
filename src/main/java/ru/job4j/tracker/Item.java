@@ -5,7 +5,7 @@ import java.time.format.DateTimeFormatter;
 
 import static java.time.LocalDateTime.now;
 
-public class Item {
+public class Item implements Comparable<Item> {
     private int id;
     private String name;
 
@@ -51,5 +51,10 @@ public class Item {
                 + ", name='" + name + '\''
                 + ", created=" + created.format(FORMATTER)
                 + '}';
+    }
+
+    @Override
+    public int compareTo(Item item) {
+        return CharSequence.compare(name, item.getName());
     }
 }
