@@ -2,8 +2,17 @@ package ru.job4j.bank;
 
 import java.util.Objects;
 
+/**
+ * Класс описывает модель данных для банковского аккаунта.
+ */
 public class Account {
+    /**
+     * Уникальный идентификатор банковского аккаунта.
+     */
     private String requisite;
+    /**
+     * Количество денег на этом аккаунте.
+     */
     private double balance;
 
     public Account(String requisite, double balance) {
@@ -27,6 +36,11 @@ public class Account {
         this.balance = balance;
     }
 
+    /**
+     * Сравнивает объекты Аккаунт на основании их реквезитов
+     * @param o
+     * @return
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) {

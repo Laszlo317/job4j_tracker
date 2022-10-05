@@ -2,13 +2,26 @@ package ru.job4j.bank;
 
 import java.util.*;
 
+/**
+ * Класс реализует набор базовых операций с пользователями и картами.
+ */
 public class BankService {
     private final Map<User, List<Account>> users = new HashMap<>();
 
+    /**
+     * Метод добавляет пользователя, если такого пользователя ещё нет.
+     * @param user
+     */
     public void addUser(User user) {
         users.putIfAbsent(user, new ArrayList<Account>());
     }
 
+    /**
+     * Метод ищет пользователя по паспорту и закрепляет за ним Account, если соответствующий
+     * аккаунт ещё за ним не закреплён. Бросает исколючение, если
+     * @param passport
+     * @param account
+     */
     public void addAccount(String passport, Account account) {
         User user = findByPassport(passport);
         if (user == null) {
@@ -19,6 +32,11 @@ public class BankService {
         }
     }
 
+    /**
+     * Находит User'a по паспарту, перебирая ключи карты users.
+     * @param passport
+     * @return
+     */
     public User findByPassport(String passport) {
         User soughtUser = null;
         for (User user : users.keySet()) {
@@ -29,6 +47,13 @@ public class BankService {
         return soughtUser;
     }
 
+    /**
+     * Используя метод finByPassport, находит пользователя и по передаваемому реквезиту
+     * проверяет есть ли у него соотвутствующий аккаунт.
+     * @param passport
+     * @param requisite
+     * @return
+     */
     public Account findByRequisite(String passport, String requisite) {
         Account soughtAccount = null;
         User user = findByPassport(passport);
@@ -42,6 +67,16 @@ public class BankService {
         return soughtAccount;
     }
 
+    /**
+     * Используя пасспорт и реквизиты отправителя и получателя, перебрасывает деньги. Выполняет проверку,
+     * существуют ли подобные пользователи и реквезиты.
+     * @param srcPassport
+     * @param srcRequisite
+     * @param destPassport
+     * @param destRequisite
+     * @param amount
+     * @return
+     */
     public boolean transferMoney(String srcPassport, String srcRequisite,
                                  String destPassport, String destRequisite, double amount) {
         boolean rsl = false;
@@ -59,6 +94,11 @@ public class BankService {
         return rsl;
     }
 
+    /**
+     * Возвращает лист всех аккаунтов, извлекая их их карты users
+     * @param user
+     * @return
+     */
     public List<Account> getAccounts(User user) {
         return users.get(user);
     }
