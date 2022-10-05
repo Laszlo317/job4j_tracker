@@ -15,4 +15,20 @@ public class FunctionCalculatorTest {
         List<Double> expected = Arrays.asList(11D, 13D, 15D);
         assertThat(result).containsAll(expected);
     }
+
+    @Test
+    public void whenQuadraticFunctionThenQuadraticResults() {
+        FunctionCalculator function = new FunctionCalculator();
+        List<Double> result = function.diapason(2, 4, x -> x * x);
+        List<Double> expected = Arrays.asList(4D, 9D);
+        assertThat(result).containsAll(expected);
+    }
+
+    @Test
+    public void whenExpFunctionThenQuadraticResults() {
+        FunctionCalculator function = new FunctionCalculator();
+        List<Double> result = function.diapason(1, 3, x -> Math.pow(2, x));
+        List<Double> expected = Arrays.asList(2D, 4D);
+        assertThat(result).containsAll(expected);
+    }
 }
