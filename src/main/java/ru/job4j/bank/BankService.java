@@ -24,9 +24,6 @@ public class BankService {
      */
     public void addAccount(String passport, Account account) {
         User user = findByPassport(passport);
-        if (user == null) {
-            throw new NullPointerException();
-        }
         if (!users.get(user).contains(account)) {
             users.get(user).add(account);
         }
@@ -42,6 +39,7 @@ public class BankService {
         for (User user : users.keySet()) {
             if (user.getPassport().equals(passport)) {
                  soughtUser = user;
+                 break;
             }
         }
         return soughtUser;
@@ -61,6 +59,7 @@ public class BankService {
             for (Account acc : getAccounts(user)) {
                 if (acc.getRequisite().equals(requisite)) {
                     soughtAccount = acc;
+                    break;
                 }
             }
         }
