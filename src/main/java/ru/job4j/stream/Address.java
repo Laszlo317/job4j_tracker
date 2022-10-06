@@ -1,5 +1,6 @@
 package ru.job4j.stream;
 
+import java.util.Comparator;
 import java.util.Objects;
 
 public class Address {
@@ -37,4 +38,6 @@ public class Address {
     public int hashCode() {
         return Objects.hash(city, street, home, apartment);
     }
+
+    public static Comparator<Address> cityComparator = Comparator.comparing(c -> c.city);
 }

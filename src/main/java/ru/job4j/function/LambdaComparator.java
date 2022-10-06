@@ -7,12 +7,21 @@ public class LambdaComparator {
     public static void main(String[] args) {
         String[] names = {
                 "Ivan",
-                "Vasiliy"
+                "Vasiliy",
+                "Yu",
+                "Ana"
         };
         Comparator<String> lengthCmp = (left, right) -> {
             System.out.println("execute comparator");
             return Integer.compare(left.length(), right.length());
         };
-        Arrays.sort(names, lengthCmp);
+       // Arrays.sort(names, lengthCmp);
+        Comparator<String> cmpDesSize = (left, right) -> {
+            System.out.println("left: " + left + ":    " + "right " + right);
+            return Integer.compare(right.length(), left.length());
+        };
+        Arrays.sort(names, cmpDesSize);
+        System.out.println(Arrays.toString(names));
     }
+
 }
