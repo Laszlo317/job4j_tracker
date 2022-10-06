@@ -2,46 +2,38 @@ package ru.job4j.map;
 
 import java.util.Objects;
 
-public final class Subject {
-    private final String name;
-    private final int score;
+public class Subject {
+    private String name;
+
+    private int score;
 
     public Subject(String name, int score) {
         this.name = name;
         this.score = score;
     }
 
-    public String name() {
+    public String getName() {
         return name;
     }
 
-    public int score() {
+    public int getScore() {
         return score;
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (obj == this) {
+    public boolean equals(Object o) {
+        if (this == o) {
             return true;
         }
-        if (obj == null || obj.getClass() != this.getClass()) {
+        if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        var that = (Subject) obj;
-        return Objects.equals(this.name, that.name)
-                && this.score == that.score;
+        Subject subject = (Subject) o;
+        return Objects.equals(name, subject.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, score);
+        return Objects.hash(name);
     }
-
-    @Override
-    public String toString() {
-        return "Subject["
-                + "name=" + name + ", "
-                + "score=" + score + ']';
-    }
-
 }
