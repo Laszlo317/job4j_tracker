@@ -15,7 +15,6 @@ public class LambdaComparator {
             System.out.println("execute comparator");
             return Integer.compare(left.length(), right.length());
         };
-       // Arrays.sort(names, lengthCmp);
         Comparator<String> cmpDesSize = (left, right) -> {
             System.out.println("left: " + left + ":    " + "right " + right);
             return Integer.compare(right.length(), left.length());
