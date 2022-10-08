@@ -39,5 +39,7 @@ public class Address {
         return Objects.hash(city, street, home, apartment);
     }
 
-    public static Comparator<Address> cityComparator = Comparator.comparing(c -> c.city);
+    public String getCity() {
+        return city;
+    }
 }
