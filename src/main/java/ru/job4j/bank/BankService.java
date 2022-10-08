@@ -67,12 +67,12 @@ public class BankService {
     /**
      * Используя пасспорт и реквизиты отправителя и получателя, перебрасывает деньги. Выполняет проверку,
      * существуют ли подобные пользователи и реквезиты.
-     * @param srcPassport
-     * @param srcRequisite
-     * @param destPassport
-     * @param destRequisite
-     * @param amount
-     * @return
+     * @param srcPassport паспорт отправителя
+     * @param srcRequisite реквезиты отправителя
+     * @param destPassport паспорт получателя
+     * @param destRequisite реквезиты отправителя
+     * @param amount уоличество переводимых денег
+     * @return возвращает true, если перевод выполнен успешно, в ином случае возвращает false.
      */
     public boolean transferMoney(String srcPassport, String srcRequisite,
                                  String destPassport, String destRequisite, double amount) {
@@ -92,7 +92,7 @@ public class BankService {
     }
 
     /**
-     * Возвращает лист всех аккаунтов, извлекая их их карты users
+     * Возвращает лист всех аккаунтов, извлекая их иp карты users
      * @param user
      * @return
      */
