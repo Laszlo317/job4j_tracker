@@ -20,10 +20,17 @@ public class Account {
         this.balance = balance;
     }
 
+    /**
+     * @return возвращает реквизиты
+     */
     public String getRequisite() {
         return requisite;
     }
 
+    /**
+     * утсанавливает реквизиты
+     * @param requisite устанавливаемые реквизиты
+     */
     public void setRequisite(String requisite) {
         this.requisite = requisite;
     }
@@ -32,6 +39,9 @@ public class Account {
         return balance;
     }
 
+    /**
+     * @param balance баланс, который мы хотим установаить
+     */
     public void setBalance(double balance) {
         this.balance = balance;
     }

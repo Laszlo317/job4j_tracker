@@ -10,7 +10,7 @@ public class BankService {
 
     /**
      * Метод добавляет пользователя, если такого пользователя ещё нет.
-     * @param user
+     * @param user пользователь
      */
     public void addUser(User user) {
         users.putIfAbsent(user, new ArrayList<Account>());
@@ -19,8 +19,8 @@ public class BankService {
     /**
      * Метод ищет пользователя по паспорту и закрепляет за ним Account, если соответствующий
      * аккаунт ещё за ним не закреплён. Бросает исколючение, если
-     * @param passport
-     * @param account
+     * @param passport паспорт, по которому ищется пользователь
+     * @param account аккаунт
      */
     public void addAccount(String passport, Account account) {
         User user = findByPassport(passport);
@@ -34,8 +34,8 @@ public class BankService {
 
     /**
      * Находит User'a по паспарту, перебирая ключи карты users.
-     * @param passport
-     * @return
+     * @param passport паспорт, по которому будет выполняться поиск
+     * @return возвращает пользователя или null, если пользователь не найден
      */
     public User findByPassport(String passport) {
         return users.keySet()
@@ -48,9 +48,9 @@ public class BankService {
     /**
      * Используя метод finByPassport, находит пользователя и по передаваемому реквезиту
      * проверяет есть ли у него соотвутствующий аккаунт.
-     * @param passport
-     * @param requisite
-     * @return
+     * @param passport паспорт для метода findByPassport
+     * @param requisite реквизиты искомого аккаунта
+     * @return возвращает аккаунт или null, если аккаунт не найден
      */
     public Account findByRequisite(String passport, String requisite) {
         User u = findByPassport(passport);
@@ -93,8 +93,8 @@ public class BankService {
 
     /**
      * Возвращает лист всех аккаунтов, извлекая их иp карты users
-     * @param user
-     * @return
+     * @param user пользователь, аккаунты которого возвращаются
+     * @return возвращает лист аккаунтов пользователя
      */
     public List<Account> getAccounts(User user) {
         return users.get(user);
