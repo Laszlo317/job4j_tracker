@@ -17,12 +17,11 @@ public class Departments {
     }
 
     public static void sortAsc(List<String> orgs) {
-        DepDescComp comp = new DepDescComp();
-        orgs.sort(comp);
+        Collections.sort(orgs);
     }
 
     public static void sortDesc(List<String> orgs) {
         DepDescComp comp = new DepDescComp();
-        orgs.sort(comp.reversed());
+        orgs.sort(comp);
     }
 }
