@@ -8,12 +8,9 @@ public class Departments {
         Set<String> tmp = new LinkedHashSet<>();
         for (String value : deps) {
             String start = "";
-            String[] s = value.split("/");
-            for (int i = 0; i < s.length; i++) {
-                if (i == 1) {
-                    start += "/";
-                }
-                start += s[i];
+            String[] sArr = value.split("/");
+            for (String s : sArr) {
+                start += s.contains("sk") ? "/" + s : s;
                 tmp.add(start);
             }
         }
