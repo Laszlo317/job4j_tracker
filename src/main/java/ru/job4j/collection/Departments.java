@@ -10,7 +10,7 @@ public class Departments {
             String start = "";
             String[] sArr = value.split("/");
             for (String s : sArr) {
-                start += s.contains("sk") ? "/" + s : s;
+                start += start.equals("") ? s : "/" + s ;
                 tmp.add(start);
             }
         }
